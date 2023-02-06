@@ -12,12 +12,13 @@ namespace APITask.BL.Services
         {
             _configuration = configuration;
         }
-        public string GetJwtToken(string username, int accountId)
+        public string GetJwtToken(string username, int accountId, string role)
         {
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, username),
-                new Claim("sub", accountId.ToString())
+                new Claim("sub", accountId.ToString()),
+                new Claim(ClaimTypes.Role, role)
             };
             var secretToken = _configuration.GetSection("Jwt:Key").Value;
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretToken));

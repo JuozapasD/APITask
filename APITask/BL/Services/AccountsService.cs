@@ -45,7 +45,8 @@ namespace APITask.BL.Services
             {
                 Username = username,
                 PasswordHash = passwordHash,
-                PasswordSalt = passwordSalt
+                PasswordSalt = passwordSalt,
+                Role = "User"
             };
             return account;
 

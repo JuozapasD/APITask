@@ -31,7 +31,7 @@ namespace APITask.Controllers
             }
             else
             {
-                var jwt = _jwtService.GetJwtToken(account.Username, account.Id);
+                var jwt = _jwtService.GetJwtToken(account.Username, account.Id, account.Role);
                 return Ok(jwt);
             }
         }
