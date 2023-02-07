@@ -45,7 +45,7 @@ namespace APITask.Controllers
             _carsList.UpdateCarById(id, car.Color, car.Brand);
         }
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme, Roles = "Admin")]
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public void Delete(int id)
         {
             _carsList.DeleteCarById(id);
